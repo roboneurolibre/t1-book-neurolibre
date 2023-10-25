@@ -1,6 +1,4 @@
-FROM jupyter/base-notebook:latest
-
-USER root
+FROM quay.io/jupyter/base-notebook:python-3.11
 
 RUN apt-get update &&            \
     apt-get install -y --no-install-recommends \
@@ -9,11 +7,10 @@ RUN apt-get update &&            \
         python3-dev &&\
     apt-get clean && \
     apt-get autoremove && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN cd $HOME/work;         \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*; \
     pip install --upgrade pip --ignore-installed certifi;  \
-    pip install jupyter-book  \
+    pip install jupyter-book==0.13.0  \
+                repo2data==2.9.1  \
                 scipy \
                 plotly \
                 flask \
@@ -22,13 +19,20 @@ RUN cd $HOME/work;         \
                 jupyterlab  \
                 jupytext\
                 matplotlib \
-                chart_studio;  \
-    git clone https://github.com/qMRLab/t1_book.git;      \
-    cd t1_book/;\ 
-    git checkout neurolibre-plots-only; \
-    chmod -R 777 $HOME/work/t1_book/;
+                chart_studio
 
-WORKDIR $HOME/work/t1_book
+COPY ../ ${HOME}
+USER root
+RUN chown -R ${NB_UID} ${HOME}
+USER ${NB_USER}
 
-USER $NB_UID
+ARG NB_USER=jovyan
+ARG NB_UID=1000
+ENV USER ${NB_USER}
+ENV NB_UID ${NB_UID}
+ENV HOME /home/${NB_USER}
 
+RUN adduser --disabled-password \
+    --gecos "Default user" \
+    --uid ${NB_UID} \
+    ${NB_USER}

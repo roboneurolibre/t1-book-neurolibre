@@ -9,7 +9,7 @@ RUN apt-get update &&            \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*; \
     pip install --upgrade pip --ignore-installed certifi;  \
-    pip install jupyter-book==0.13.0  \
+    pip install jupyter-book \
                 repo2data==2.9.1  \
                 scipy \
                 plotly \

@@ -1,4 +1,6 @@
-FROM quay.io/jupyter/base-notebook:python-3.11
+FROM jupyter/base-notebook:python-3.8
+
+USER root
 
 RUN apt-get update &&            \
     apt-get install -y --no-install-recommends \
@@ -22,7 +24,6 @@ RUN apt-get update &&            \
                 chart_studio
 
 COPY ../ ${HOME}
-USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 

@@ -1,17 +1,8 @@
-FROM jupyter/base-notebook:python-3.8
+FROM python:3.8-slim
 
-USER root
-
-RUN apt-get update &&            \
-    apt-get install -y --no-install-recommends \
-        build-essential\
-        git \
-        python3-dev &&\
-    apt-get clean && \
-    apt-get autoremove && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN pip install --upgrade pip --ignore-installed certifi;  \
+user root
+# install the notebook package
+RUN pip install --no-cache --upgrade pip; \
     pip install jupyter-book \
                 repo2data==2.9.1  \
                 scipy \

@@ -1,12 +1,11 @@
 # Book settings
-title                       : "Quantitative T&#8321; MRI"
+title                       : "Quantitative T1 MRI"
 author                      : <a href="https://github.com/mathieuboudreau">Mathieu Boudreau</a>
-copyright                   : "2018"  
-logo                        : images/logo.png  
+copyright                   : "2023"
 exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 
 execute:
-  execute_notebooks: force
+  execute_notebooks: auto
 
 only_build_toc_files: true 
 
@@ -16,21 +15,18 @@ html:
   use_repository_button     : true  
   use_issues_button         : true  
   extra_navbar              : Return to <a href="https://neurolibre.org/">NeuroLibre</a>  
-  home_page_in_navbar       : true  
-  baseurl                   : ""  
+  home_page_in_navbar       : true
   comments:
     hypothesis              : true
 
 
 launch_buttons:
-  notebook_interface        : "jupyterlab"     
-  binderhub_url             : "https://binder.conp.cloud"
-  thebe                     : true  
+  notebook_interface        : "jupyterlab"
+  binderhub_url             : "https://test.conp.cloud"
 
 repository:
-  url                       : https://github.com/qMRLab/t1_book
+  url                       : https://github.com/qMRLab/t1-book-neurolibre
   path_to_book              : content/
-  branch                    : neurolibre  
 
 
 parse:
@@ -46,3 +42,22 @@ parse:
     - replacements
     - smartquotes
     - substitution
+
+sphinx:
+  local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
+  recursive_update          : true # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update
+  config                    :   # key-value pairs to directly over-ride the Sphinx configuration
+    bibtex_reference_style: author_year
+    bibtex_default_style: plain
+    html_static_path: ['_static']
+    html_css_files: ['custom.css']
+    bibtex_tooltips: true
+    html_context:
+      default_mode: light
+    html_theme_options:
+      logo:
+        image_light: "https://github.com/agahkarakuzu/figserver/blob/main/logo_light.png?raw=true"
+        image_dark: "https://github.com/agahkarakuzu/figserver/blob/main/logo_dark2.png?raw=true"
+
+bibtex_bibfiles:
+  - ../paper.bib

@@ -1,0 +1,9 @@
+repo2data==2.9.1
+jupyter-book==0.15.1
+scipy
+plotly
+chart_studio
+ipywidgets
+nbconvert
+matplotlib
+numpy

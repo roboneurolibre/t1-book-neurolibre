@@ -1,0 +1,18 @@
+p {
+    text-align: justify;
+  }
+  a {
+    color: #ee2f2f!important;
+  }
+  a:hover {
+    color: brick!important;
+  }
+  a:visited {
+    color: #288ee2!important;
+  }
+
+  .caption {
+      text-align:justify;
+      line-height:1.25;
+      font-size:80%
+  }

@@ -7,3 +7,4 @@ ipywidgets
 nbconvert
 matplotlib
 numpy
+pydata-sphinx-theme==0.14.2

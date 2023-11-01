@@ -21,10 +21,10 @@ align: center
 ---
 ```
 
-```{admonition} References
+````{admonition} References
 :class: seealso
 
 ```{bibliography}
 :filter: docname in docnames
 ```
-```
+````

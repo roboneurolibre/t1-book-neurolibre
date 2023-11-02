@@ -1,4 +1,4 @@
-## Variable Flip Angle T<sub>1</sub> Mapping
+# Variable Flip Angle T<sub>1</sub> Mapping
 
 Variable flip angle (VFA) T<sub>1</sub> mapping {cite:p}`Christensen1974,Fram1987,Gupta1977`, also known as Driven Equilibrium Single Pulse Observation of T<sub>1</sub> (DESPOT1) {cite:p}`Homer1985,Deoni2003`, is a rapid quantitative T<sub>1</sub> measurement technique that is widely used to acquire 3D T<sub>1</sub> maps (e.g. whole-brain) in a clinically feasible time. VFA estimates T<sub>1</sub> values by acquiring multiple spoiled gradient echo acquisitions, each with different excitation flip angles (<i>θ<sub>n</sub></i> for n = 1, 2, .., N and <i>θ<sub>i</sub></i> ≠ <i>θ<sub>j</sub></i>). The steady-state signal of this pulse sequence (Figure 1) uses very short TRs (on the order of magnitude of 10 ms) and is very sensitive to T<sub>1</sub> for a wide range of flip angles.
 
